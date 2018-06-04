@@ -99,6 +99,7 @@ class QuestionPageState extends State<QuestionPage> {
                   margin: new EdgeInsets.only()
               ),
               new Container(
+                margin: const EdgeInsets.only(top: 4.0, bottom: 4.0),
                 child: new Row(
                   children: <Widget>[
                     new Expanded(
@@ -109,15 +110,34 @@ class QuestionPageState extends State<QuestionPage> {
                     ),
                     new Expanded(
                       child: new Container(
-                        child: new FlatButton(onPressed: (){}, child: new Container(
-                          child: new Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[
-                              new Text("按质量排序", style: new TextStyle(color: Colors.white30)),
-                              new Icon(Icons.keyboard_arrow_down, color: Colors.white30)
-                            ],
+                        child: new PopupMenuButton(
+                          itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
+                            new PopupMenuItem<String>(
+                              value: '质量',
+                              child: new Container(
+                                child: new Row(
+                                  children: <Widget>[
+                                    new Text('按质量排序'),
+                                    new Icon(Icons.check, color: Colors.blue,)
+                                  ],
+                                ),
+                              )
+                            ),
+                            new PopupMenuItem<String>(
+                              value: '时间',
+                              child: new Text('按时间排序')
+                            )
+                          ],
+                          child: new Container(
+                            child: new Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget>[
+                                new Text("按质量排序", style: new TextStyle(color: Colors.white30)),
+                                new Icon(Icons.keyboard_arrow_down, color: Colors.white30)
+                              ],
+                            ),
                           ),
-                        )),
+                        ),
                         alignment: Alignment.centerRight,
                       ),
                     ),
