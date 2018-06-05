@@ -84,53 +84,53 @@ class ReplyPageState extends State<ReplyPage> {
                   ),
                 ),
                 new Container(
-                  child: new Row(
-                    children: <Widget>[
-                      new Expanded(
-                        flex: 1,
-                        child: new Container(
-                          child: new FlatButton.icon(
-                            onPressed: (){},
-                            icon: new Icon(Icons.brush),
-                            label: new Text("写回答"),
-                            textTheme: ButtonTextTheme.accent,
-                          ),
-                          decoration: new BoxDecoration(
-                              border: new BorderDirectional(end: new BorderSide(color: Colors.white10))
-                          ),
-                        ),
-                      ),
-                      new Expanded(
-                        flex: 1,
-                        child: new Container(
-                          child: new FlatButton(
-                            onPressed: (){
-                              Navigator.of(context).push(new MaterialPageRoute(
-                                  builder: (context) {
-                                    return new QuestionPage();
-                                  }
-                              ));
-                            },
-                            child: new Text("查看全部10000个回答 > "),
+                    child: new Row(
+                      children: <Widget>[
+                        new Expanded(
+                          flex: 1,
+                          child: new Container(
+                            child: new FlatButton.icon(
+                              onPressed: (){},
+                              icon: new Icon(Icons.brush),
+                              label: new Text("写回答"),
+                              textTheme: ButtonTextTheme.accent,
+                            ),
+                            decoration: new BoxDecoration(
+                                border: new BorderDirectional(end: new BorderSide(color: Colors.white10))
+                            ),
                           ),
                         ),
-                      )
-                    ],
-                  ),
-                  decoration: new BoxDecoration(
-                    color: GlobalConfig.cardBackgroundColor,
-                  ),
-                  margin: new EdgeInsets.only(bottom: 10.0)
+                        new Expanded(
+                          flex: 1,
+                          child: new Container(
+                            child: new FlatButton(
+                              onPressed: (){
+                                Navigator.of(context).push(new MaterialPageRoute(
+                                    builder: (context) {
+                                      return new QuestionPage();
+                                    }
+                                ));
+                              },
+                              child: new Text("查看全部10000个回答 > "),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    decoration: new BoxDecoration(
+                      color: GlobalConfig.cardBackgroundColor,
+                    ),
+                    margin: new EdgeInsets.only(bottom: 10.0)
                 ),
                 new Container(
                   child: new ListTile(
-                    leading: new CircleAvatar(
-                      backgroundImage: new NetworkImage("https://pic3.zhimg.com/v2-cd467bb9bb31d0384f065cf0bd677930_xl.jpg"),
-                      radius: 20.0
-                    ),
-                    title: new Text("Flutter"),
-                    subtitle: new Text("人生如逆旅，我亦是行人"),
-                    trailing: new RaisedButton.icon(onPressed: (){}, icon: new Icon(Icons.add, color: Colors.white), label: new Text("关注", style: new TextStyle(color: Colors.white),), color: Colors.blue,)
+                      leading: new CircleAvatar(
+                          backgroundImage: new NetworkImage("https://pic3.zhimg.com/v2-cd467bb9bb31d0384f065cf0bd677930_xl.jpg"),
+                          radius: 20.0
+                      ),
+                      title: new Text("Flutter"),
+                      subtitle: new Text("人生如逆旅，我亦是行人"),
+                      trailing: new RaisedButton.icon(onPressed: (){}, icon: new Icon(Icons.add, color: Colors.white), label: new Text("关注", style: new TextStyle(color: Colors.white),), color: Colors.blue,)
                   ),
                   decoration: new BoxDecoration(
                       color: GlobalConfig.cardBackgroundColor,
@@ -148,74 +148,74 @@ class ReplyPageState extends State<ReplyPage> {
             ),
           ),
           bottomNavigationBar: new BottomAppBar(
-            child: new Container(
-              height: 50.0,
-              child: new Row(
-                children: <Widget>[
-                  new Container(
-                    child: new FlatButton.icon(onPressed: (){}, label: new Text("赞同 10 K"), color: GlobalConfig.searchBackgroundColor, icon: new Icon(Icons.arrow_drop_up),),
-                    margin: new EdgeInsets.only(left: 16.0),
-                    height: 30.0,
-                  ),
-                  new Container(
-                    child: new IconButton(onPressed: (){}, icon: new Icon(Icons.arrow_drop_down),padding: const EdgeInsets.all(0.0)),
-                    margin: new EdgeInsets.only(left: 8.0),
-                    height: 30.0,
-                    decoration: new BoxDecoration(
-                      borderRadius: const BorderRadius.all(const Radius.circular(2.0)),
-                      color: GlobalConfig.searchBackgroundColor,
+              child: new Container(
+                height: 50.0,
+                child: new Row(
+                  children: <Widget>[
+                    new Container(
+                      child: new FlatButton.icon(onPressed: (){}, label: new Text("赞同 10 K"), color: GlobalConfig.searchBackgroundColor, icon: new Icon(Icons.arrow_drop_up),),
+                      margin: new EdgeInsets.only(left: 16.0),
+                      height: 30.0,
                     ),
-                  ),
-                  new Expanded(
-                    child: new Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        new IconButton(
-                            onPressed: (){ print("icon");},
-                            icon: new Container(
-                              child: new Column(
-                                children: <Widget>[
-                                  new Icon(Icons.favorite, size: 18.0, color: GlobalConfig.fontColor,),
-                                  new Text("感谢", style: new TextStyle(fontSize: 10.0, color: GlobalConfig.fontColor),)
-                                ],
-                              ),
-                              margin: const EdgeInsets.only(),
-                              height: 30.0,
-                            )
-                        ),
-                        new IconButton(
-                            onPressed: (){ print("icon");},
-                            icon: new Container(
-                              child: new Column(
-                                children: <Widget>[
-                                  new Icon(Icons.star, size: 18.0, color: GlobalConfig.fontColor,),
-                                  new Text("收藏", style: new TextStyle(fontSize: 10.0, color: GlobalConfig.fontColor),)
-                                ],
-                              ),
-                              margin: const EdgeInsets.only(),
-                              height: 30.0,
-                            )
-                        ),
-                        new IconButton(
-                            onPressed: (){ print("icon");},
-                            icon: new Container(
-                              child: new Column(
-                                children: <Widget>[
-                                  new Icon(Icons.mode_comment, size: 18.0, color: GlobalConfig.fontColor,),
-                                  new Text("345", style: new TextStyle(fontSize: 10.0, color: GlobalConfig.fontColor),)
-                                ],
-                              ),
-                              margin: const EdgeInsets.only(),
-                              height: 30.0,
-                            )
-                        ),
-                      ],
+                    new Container(
+                      child: new IconButton(onPressed: (){}, icon: new Icon(Icons.arrow_drop_down),padding: const EdgeInsets.all(0.0)),
+                      margin: new EdgeInsets.only(left: 8.0),
+                      height: 30.0,
+                      decoration: new BoxDecoration(
+                        borderRadius: const BorderRadius.all(const Radius.circular(2.0)),
+                        color: GlobalConfig.searchBackgroundColor,
+                      ),
+                    ),
+                    new Expanded(
+                        child: new Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            new IconButton(
+                                onPressed: (){ print("icon");},
+                                icon: new Container(
+                                  child: new Column(
+                                    children: <Widget>[
+                                      new Icon(Icons.favorite, size: 18.0, color: GlobalConfig.fontColor,),
+                                      new Text("感谢", style: new TextStyle(fontSize: 10.0, color: GlobalConfig.fontColor),)
+                                    ],
+                                  ),
+                                  margin: const EdgeInsets.only(),
+                                  height: 30.0,
+                                )
+                            ),
+                            new IconButton(
+                                onPressed: (){ print("icon");},
+                                icon: new Container(
+                                  child: new Column(
+                                    children: <Widget>[
+                                      new Icon(Icons.star, size: 18.0, color: GlobalConfig.fontColor,),
+                                      new Text("收藏", style: new TextStyle(fontSize: 10.0, color: GlobalConfig.fontColor),)
+                                    ],
+                                  ),
+                                  margin: const EdgeInsets.only(),
+                                  height: 30.0,
+                                )
+                            ),
+                            new IconButton(
+                                onPressed: (){ print("icon");},
+                                icon: new Container(
+                                  child: new Column(
+                                    children: <Widget>[
+                                      new Icon(Icons.mode_comment, size: 18.0, color: GlobalConfig.fontColor,),
+                                      new Text("345", style: new TextStyle(fontSize: 10.0, color: GlobalConfig.fontColor),)
+                                    ],
+                                  ),
+                                  margin: const EdgeInsets.only(),
+                                  height: 30.0,
+                                )
+                            ),
+                          ],
+                        )
                     )
-                  )
-                ],
-              ),
-              color: GlobalConfig.cardBackgroundColor,
-            )
+                  ],
+                ),
+                color: GlobalConfig.cardBackgroundColor,
+              )
           ),
         )
     );
