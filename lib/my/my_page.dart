@@ -63,7 +63,7 @@ class _MyPageState extends State<MyPage> {
                 children: <Widget>[
                   new Container(
                     color: GlobalConfig.cardBackgroundColor,
-                    margin: const EdgeInsets.only(top: 6.0, bottom: 6.0),
+                    margin: const EdgeInsets.only(top: 10.0, bottom: 6.0),
                     padding: const EdgeInsets.only(top: 12.0, bottom: 8.0),
                     child: new Column(
                       children: <Widget>[
