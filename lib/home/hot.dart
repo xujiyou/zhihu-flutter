@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'question.dart';
 import 'question_page.dart';
+import '../global_config.dart';
 
 class Hot extends StatefulWidget{
 
@@ -13,9 +14,9 @@ class HotState extends State<Hot>{
   Widget hotCard(Question question) {
     return new Container(
       decoration: new BoxDecoration(
-          color: const Color(0xff222222),
+          color: GlobalConfig.cardBackgroundColor,
           border: new BorderDirectional(
-              bottom: new BorderSide(color: Colors.white12, width: 1.0)
+              bottom: new BorderSide(color: GlobalConfig.dark == true ?  Colors.white12 : Colors.black12, width: 1.0)
           )
       ),
       child: new FlatButton(
@@ -61,19 +62,19 @@ class HotState extends State<Hot>{
                         new Container(
                           child: new Text(
                             question.title,
-                            style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, height: 1.1, color: Colors.white70),
+                            style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, height: 1.1, color: GlobalConfig.dark == true ? Colors.white70 : Colors.black),
                           ),
                           padding: const EdgeInsets.only(bottom: 10.0,right: 4.0),
                           alignment: Alignment.topLeft,
                         ),
                         question.mark != null ?
                           new Container(
-                            child: new Text(question.mark, style: new TextStyle(color: Colors.white30)),
+                            child: new Text(question.mark, style: new TextStyle(color: GlobalConfig.fontColor)),
                             alignment: Alignment.topLeft,
                               padding: const EdgeInsets.only(bottom: 8.0,right: 4.0)
                           ) : new Container(),
                         new Container(
-                          child: new Text(question.hotNum, style: new TextStyle(color: Colors.white30)),
+                          child: new Text(question.hotNum, style: new TextStyle(color: GlobalConfig.fontColor)),
                           alignment: Alignment.topLeft,
                         )
                       ],
@@ -104,18 +105,21 @@ class HotState extends State<Hot>{
   @override
   Widget build(BuildContext context) {
     return new SingleChildScrollView(
-      child: new Column(
-        children: <Widget>[
-          new Container(
-            margin: const EdgeInsets.only(top: 5.0),
-          ),
-          hotCard(questionList[0]),
-          hotCard(questionList[1]),
-          hotCard(questionList[2]),
-          hotCard(questionList[3]),
-          hotCard(questionList[4]),
-        ],
-      ),
+        child: new Container(
+        margin: const EdgeInsets.only(top: 5.0),
+        child: new Column(
+          children: <Widget>[
+            new Container(
+              margin: const EdgeInsets.only(top: 5.0),
+            ),
+            hotCard(questionList[0]),
+            hotCard(questionList[1]),
+            hotCard(questionList[2]),
+            hotCard(questionList[3]),
+            hotCard(questionList[4]),
+          ],
+        ),
+      )
     );
   }
 }

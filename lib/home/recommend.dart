@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'article.dart';
 import 'reply_page.dart';
+import '../global_config.dart';
 
 class Recommend extends StatefulWidget {
 
@@ -16,7 +17,7 @@ class RecommendState extends State<Recommend> {
     if (article.imgUrl == null) {
       markWidget = new Text(
         article.user + " :  " + article.mark,
-        style: new TextStyle(height: 1.3, color: Colors.white30)
+        style: new TextStyle(height: 1.3, color: GlobalConfig.fontColor)
       );
     } else {
       markWidget = new Row(
@@ -26,7 +27,7 @@ class RecommendState extends State<Recommend> {
             child: new Container(
               child: new Text(
                 article.user + " :  " + article.mark,
-                style: new TextStyle(height: 1.3, color: Colors.white30)
+                style: new TextStyle(height: 1.3, color: GlobalConfig.fontColor)
               ),
             ),
           ),
@@ -49,7 +50,7 @@ class RecommendState extends State<Recommend> {
       );
     }
     return new Container(
-        color: const Color(0xff222222),
+        color: GlobalConfig.cardBackgroundColor,
         margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
         child: new FlatButton(
           onPressed: (){
@@ -64,7 +65,7 @@ class RecommendState extends State<Recommend> {
               new Container(
                   child: new Text(
                       article.title,
-                      style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, height: 1.3, color: Colors.white70)
+                      style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, height: 1.3, color: GlobalConfig.dark == true? Colors.white70 : Colors.black)
                   ),
                   margin: new EdgeInsets.only(top: 6.0, bottom: 2.0),
                   alignment: Alignment.topLeft
@@ -78,9 +79,9 @@ class RecommendState extends State<Recommend> {
                 child: new Row(
                   children: <Widget>[
                     new Expanded(
-                        child: new Text(article.agreeNum.toString() + " 赞同 · " + article.commentNum.toString() + "评论", style: new TextStyle(color: Colors.white30))
+                        child: new Text(article.agreeNum.toString() + " 赞同 · " + article.commentNum.toString() + "评论", style: new TextStyle(color: GlobalConfig.fontColor))
                     ),
-                    new Icon(Icons.linear_scale, color: Colors.white30)
+                    new Icon(Icons.linear_scale, color: GlobalConfig.fontColor)
                   ],
                 ),
                 padding: const EdgeInsets.only(bottom: 10.0),
@@ -94,12 +95,15 @@ class RecommendState extends State<Recommend> {
   @override
   Widget build(BuildContext context) {
     return new SingleChildScrollView(
-      child: new Column(
-        children: <Widget>[
-          commonCard(articleList[0]),
-          commonCard(articleList[1]),
-        ],
-      ),
+        child: new Container(
+        margin: const EdgeInsets.only(top: 5.0),
+        child: new Column(
+          children: <Widget>[
+            commonCard(articleList[0]),
+            commonCard(articleList[1]),
+          ],
+        ),
+      )
     );
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'article.dart';
 import 'reply_page.dart';
+import '../global_config.dart';
 
 class Follow extends StatefulWidget {
 
@@ -16,7 +17,7 @@ class _FollowState extends State<Follow> {
     if (article.imgUrl == null) {
       markWidget = new Text(
         article.mark,
-        style: new TextStyle(height: 1.3, color: Colors.white30)
+        style: new TextStyle(height: 1.3, color: GlobalConfig.fontColor)
       );
     } else {
       markWidget = new Row(
@@ -26,7 +27,7 @@ class _FollowState extends State<Follow> {
               child: new Container(
                 child: new Text(
                     article.mark,
-                    style: new TextStyle(height: 1.3, color: Colors.white30)
+                    style: new TextStyle(height: 1.3, color: GlobalConfig.fontColor)
                 ),
               ),
           ),
@@ -49,7 +50,7 @@ class _FollowState extends State<Follow> {
       );
     }
     return new Container(
-      color: const Color(0xff222222),
+      color: GlobalConfig.cardBackgroundColor,
       margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
       child: new FlatButton(
         onPressed: (){
@@ -70,7 +71,7 @@ class _FollowState extends State<Follow> {
                         radius: 11.0
                     ),
                   ),
-                  new Text("  " + article.user + " " + article.action + " · " + article.time, style: new TextStyle(color: Colors.white30))
+                  new Text("  " + article.user + " " + article.action + " · " + article.time, style: new TextStyle(color: GlobalConfig.fontColor))
                 ],
               ),
               padding: const EdgeInsets.only(top: 10.0),
@@ -78,7 +79,7 @@ class _FollowState extends State<Follow> {
             new Container(
                 child: new Text(
                     article.title,
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, height: 1.3, color: Colors.white70)
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, height: 1.3, color: GlobalConfig.dark == true? Colors.white70 : Colors.black)
                 ),
                 margin: new EdgeInsets.only(top: 6.0, bottom: 2.0),
                 alignment: Alignment.topLeft
@@ -92,10 +93,10 @@ class _FollowState extends State<Follow> {
               child: new Row(
                 children: <Widget>[
                   new Expanded(
-                      child: new Text(article.agreeNum.toString() + " 赞同 · " + article.commentNum.toString() + "评论", style: new TextStyle(color: Colors.white30))
+                      child: new Text(article.agreeNum.toString() + " 赞同 · " + article.commentNum.toString() + "评论", style: new TextStyle(color: GlobalConfig.fontColor))
                   ),
                   new PopupMenuButton(
-                    icon: new Icon(Icons.linear_scale, color: Colors.white30,),
+                    icon: new Icon(Icons.linear_scale, color: GlobalConfig.fontColor,),
                     itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
                       new PopupMenuItem<String>(
                           value: '选项一的值',
@@ -124,7 +125,7 @@ class _FollowState extends State<Follow> {
   Widget billboard() {
     return new Container(
       margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-      color: const Color(0xff222222),
+      color: GlobalConfig.cardBackgroundColor,
       child: new FlatButton(
         onPressed: (){},
         child: new Column(
@@ -138,7 +139,7 @@ class _FollowState extends State<Follow> {
                         radius: 11.0
                     ),
                   ),
-                  new Text("  对啊网", style: new TextStyle(color: Colors.white30))
+                  new Text("  对啊网", style: new TextStyle(color: GlobalConfig.fontColor))
                 ],
               ),
               padding: const EdgeInsets.only(top: 10.0),
@@ -146,7 +147,7 @@ class _FollowState extends State<Follow> {
             new Container(
                 child: new Text(
                     "考过CPA，非名牌大学也能进名企",
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, height: 1.3, color: Colors.white70)
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, height: 1.3, color: GlobalConfig.dark == true? Colors.white70 : Colors.black)
                 ),
                 margin: new EdgeInsets.only(top: 6.0, bottom: 2.0),
                 alignment: Alignment.topLeft
@@ -170,7 +171,7 @@ class _FollowState extends State<Follow> {
             new Container(
                 child: new Text(
                     "还在羡慕别人的好工作？免费领取价值1980元的注册会计师课程，为自己充电！",
-                    style: new TextStyle(height: 1.3, color: Colors.white30)
+                    style: new TextStyle(height: 1.3, color: GlobalConfig.fontColor)
                 ),
                 padding: const EdgeInsets.only(bottom: 8.0)
             ),
@@ -179,17 +180,17 @@ class _FollowState extends State<Follow> {
               child: new Row(
                 children: <Widget>[
                   new Container(
-                      child: new Text("广告", style: new TextStyle(fontSize: 10.0, color: Colors.white30)),
+                      child: new Text("广告", style: new TextStyle(fontSize: 10.0, color: GlobalConfig.fontColor)),
                       decoration: new BoxDecoration(
-                        border: new Border.all(color: Colors.white30),
+                        border: new Border.all(color: GlobalConfig.fontColor),
                         borderRadius: new BorderRadius.all(const Radius.circular(2.0)),
                       ),
                       padding: const EdgeInsets.only(top: 2.0, bottom: 2.0, left: 3.0, right: 3.0)
                   ),
                   new Expanded(
-                      child: new Text("  查看详情", style: new TextStyle(color: Colors.white30))
+                      child: new Text("  查看详情", style: new TextStyle(color: GlobalConfig.fontColor))
                   ),
-                  new Icon(Icons.clear, color: Colors.white30)
+                  new Icon(Icons.clear, color: GlobalConfig.fontColor)
                 ],
               ),
               padding: const EdgeInsets.only(bottom: 10.0),
@@ -203,15 +204,18 @@ class _FollowState extends State<Follow> {
   @override
   Widget build(BuildContext context) {
     return new SingleChildScrollView(
-      child: new Column(
-        children: <Widget>[
-          wordsCard(articleList[0]),
-          wordsCard(articleList[1]),
-          wordsCard(articleList[2]),
-          billboard(),
-          wordsCard(articleList[3])
-        ],
-      ),
+      child: new Container(
+        margin: const EdgeInsets.only(top: 5.0),
+        child: new Column(
+          children: <Widget>[
+            wordsCard(articleList[0]),
+            wordsCard(articleList[1]),
+            wordsCard(articleList[2]),
+            billboard(),
+            wordsCard(articleList[3])
+          ],
+        ),
+      )
     );
   }
 }
