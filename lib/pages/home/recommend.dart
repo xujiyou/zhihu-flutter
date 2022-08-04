@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:zhihu/model/global_config.dart';
 import 'article.dart';
 import 'reply_page.dart';
-import '../global_config.dart';
 
 class Recommend extends StatefulWidget {
 

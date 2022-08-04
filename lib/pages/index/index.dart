@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:zhihu/model/global_config.dart';
+import 'package:zhihu/pages/home/home_page.dart';
+import 'package:zhihu/pages/idea_page.dart';
+import 'package:zhihu/pages/market_page.dart';
+import 'package:zhihu/pages/my_page.dart';
+import 'package:zhihu/pages/notice_page.dart';
 import 'navigation_icon_view.dart';
-import '../global_config.dart';
-import '../home/home_page.dart';
-import '../idea/idea_page.dart';
-import '../market/market_page.dart';
-import '../notice/notice_page.dart';
-import '../my/my_page.dart';
 
 class Index extends StatefulWidget {
-
   @override
   State<Index> createState() => _IndexState();
 }
 
-class _IndexState extends State<Index> with TickerProviderStateMixin{
-
+class _IndexState extends State<Index> with TickerProviderStateMixin {
   int _currentIndex = 0;
   List<NavigationIconView> _navigationViews;
   List<StatefulWidget> _pageList;
@@ -26,27 +24,27 @@ class _IndexState extends State<Index> with TickerProviderStateMixin{
     _navigationViews = <NavigationIconView>[
       NavigationIconView(
         icon: Icon(Icons.assignment),
-        title: Text("首页"),
+        label: "首页",
         vsync: this,
       ),
       NavigationIconView(
         icon: Icon(Icons.all_inclusive),
-        title: Text("想法"),
+        label: "想法",
         vsync: this,
       ),
       NavigationIconView(
         icon: Icon(Icons.add_shopping_cart),
-        title: Text("市场"),
+        label: "市场",
         vsync: this,
       ),
       NavigationIconView(
         icon: Icon(Icons.add_alert),
-        title: Text("通知"),
+        label: "通知",
         vsync: this,
       ),
       NavigationIconView(
         icon: Icon(Icons.perm_identity),
-        title: Text("我的"),
+        label: "我的",
         vsync: this,
       ),
     ];
@@ -59,13 +57,13 @@ class _IndexState extends State<Index> with TickerProviderStateMixin{
       IdeaPage(),
       MarketPage(),
       NoticePage(),
-      MyPage()
+      // MyPage()
     ];
     _currentPage = _pageList[_currentIndex];
   }
 
   void _rebuild() {
-    setState((){});
+    setState(() {});
   }
 
   @override
@@ -80,30 +78,26 @@ class _IndexState extends State<Index> with TickerProviderStateMixin{
   Widget build(BuildContext context) {
     final BottomNavigationBar bottomNavigationBar = BottomNavigationBar(
         items: _navigationViews
-            .map((NavigationIconView navigationIconView) => navigationIconView.item)
+            .map((NavigationIconView navigationIconView) =>
+                navigationIconView.item)
             .toList(),
-      currentIndex: _currentIndex,
-      fixedColor: Colors.blue,
-      type: BottomNavigationBarType.fixed,
-      onTap: (int index) {
-        setState((){
-          _navigationViews[_currentIndex].controller.reverse();
-          _currentIndex = index;
-          _navigationViews[_currentIndex].controller.forward();
-          _currentPage = _pageList[_currentIndex];
+        currentIndex: _currentIndex,
+        fixedColor: Colors.blue,
+        type: BottomNavigationBarType.fixed,
+        onTap: (int index) {
+          setState(() {
+            _navigationViews[_currentIndex].controller.reverse();
+            _currentIndex = index;
+            _navigationViews[_currentIndex].controller.forward();
+            _currentPage = _pageList[_currentIndex];
+          });
         });
-      }
-    );
 
     return MaterialApp(
         home: Scaffold(
-          body: Center(
-            child: _currentPage
+          body: Center(child: _currentPage),
+          bottomNavigationBar: bottomNavigationBar,
         ),
-        bottomNavigationBar: bottomNavigationBar,
-      ),
-      theme: GlobalConfig.themeData
-    );
+        theme: GlobalConfig.themeData);
   }
-
 }

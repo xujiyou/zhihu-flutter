@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../global_config.dart';
-
+import 'package:zhihu/model/global_config.dart';
 class MarketPage extends StatefulWidget {
 
   @override

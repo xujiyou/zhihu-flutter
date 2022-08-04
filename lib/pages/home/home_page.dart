@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import '../global_config.dart';
+import 'package:zhihu/model/global_config.dart';
 import 'follow.dart';
 import 'recommend.dart';
 import 'hot.dart';
 import 'search_page.dart';
 import 'ask_page.dart';
-import '../global_config.dart';
 
 class HomePage extends StatefulWidget {
 
