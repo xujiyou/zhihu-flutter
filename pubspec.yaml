@@ -1,7 +1,9 @@
 name: zhihu
+version: 1.1.1
 description: A new Flutter application.
 environment:
   sdk: '>=2.10.0 <3.0.0'
+  
 dependencies:
   flutter:
     sdk: flutter
