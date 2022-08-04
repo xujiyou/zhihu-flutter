@@ -12,5 +12,4 @@ class ZhiHu extends StatelessWidget {
       home: new Index(),
     );
   }
-
 }
