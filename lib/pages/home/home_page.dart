@@ -1,77 +1,80 @@
 import 'package:flutter/material.dart';
-import '../global_config.dart';
+import 'package:zhihu/model/global_config.dart';
 import 'follow.dart';
 import 'recommend.dart';
 import 'hot.dart';
 import 'search_page.dart';
 import 'ask_page.dart';
-import '../global_config.dart';
 
 class HomePage extends StatefulWidget {
 
   @override
-  _HomePageState createState() => new _HomePageState();
+  _HomePageState createState() => _HomePageState();
 
 }
 
 class _HomePageState extends State<HomePage> {
 
   Widget barSearch() {
-    return new Container(
-      child: new Row(
+    return Container(
+        child: Row(
         children: <Widget>[
-          new Expanded(
-              child: new FlatButton.icon(
+            Expanded(
+                child: FlatButton.icon(
                 onPressed: (){
-                  Navigator.of(context).push(new MaterialPageRoute(
+                Navigator.of(context)
+                    .push(MaterialPageRoute(
                     builder: (context) {
-                      return new SearchPage();
+                  return SearchPage();
                     }
                   ));
                 },
-                icon: new Icon(
+              icon:
+                  Icon(
                   Icons.search,
                   color: GlobalConfig.fontColor,
                   size: 16.0
                 ),
-                label: new Text(
+              label: Text(
                   "坚果R1摄像头损坏",
-                  style: new TextStyle(color: GlobalConfig.fontColor),
+                style: TextStyle(color: GlobalConfig.fontColor),
                 ),
               )
           ),
-          new Container(
-            decoration: new BoxDecoration(
-                border: new BorderDirectional(
-                    start: new BorderSide(color: GlobalConfig.fontColor, width: 1.0)
+            Container(
+              decoration: BoxDecoration(
+                  border: BorderDirectional(
+                      start: BorderSide(
+                          color: GlobalConfig.fontColor, width: 1.0)
                 )
             ),
             height: 14.0,
             width: 1.0,
           ),
-          new Container(
-            child: new FlatButton.icon(
+            Container(
+                child: FlatButton.icon(
               onPressed: (){
-                Navigator.of(context).push(new MaterialPageRoute(
+                Navigator.of(context)
+                    .push(MaterialPageRoute(
                   builder: (context) {
-                    return new AskPage();
+                  return AskPage();
                   }
                 ));
               },
-              icon: new Icon(
+              icon: Icon(
                 Icons.border_color,
                 color: GlobalConfig.fontColor,
                 size: 14.0
               ),
-              label: new Text(
+              label: Text(
                 "提问",
-                style: new TextStyle(color: GlobalConfig.fontColor),
+                style: TextStyle(color: GlobalConfig.fontColor),
               ),
             )
           )
         ],
       ),
-      decoration: new BoxDecoration(
+        decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(const Radius.circular(4.0)),
         color: GlobalConfig.searchBackgroundColor,
       )
@@ -80,26 +83,25 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return new DefaultTabController(
+    return DefaultTabController(
         length: 3,
-        child: new Scaffold(
-          appBar: new AppBar(
+      child: Scaffold(
+        appBar: AppBar(
             title: barSearch(),
-            bottom: new TabBar(
-              labelColor: GlobalConfig.dark == true ? new Color(0xFF63FDD9) : Colors.blue,
+          bottom: TabBar(
+            labelColor:
+                GlobalConfig.dark == true ? Color(0xFF63FDD9) : Colors.blue,
               unselectedLabelColor: GlobalConfig.dark == true ? Colors.white : Colors.black,
               tabs: [
-                new Tab(text: "关注"),
-                new Tab(text: "推荐"),
-                new Tab(text: "热榜"),
+              Tab(text: "关注"),
+              Tab(text: "推荐"),
+              Tab(text: "热榜"),
               ],
             ),
           ),
-          body: new TabBarView(
+        body: TabBarView(
               children: [
-                new Follow(),
-                new Recommend(),
-                new Hot()
+                Follow(), Recommend(), Hot()
               ]
           ),
         ),

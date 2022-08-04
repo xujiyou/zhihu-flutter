@@ -4,14 +4,14 @@ class NavigationIconView {
 
   NavigationIconView({
     Widget icon,
-    Widget title,
+    String label,
     TickerProvider vsync
   }):
-    item = new BottomNavigationBarItem(
+    item = BottomNavigationBarItem(
       icon: icon,
-      title: title,
+          label: label,
     ),
-    controller = new AnimationController(
+        controller = AnimationController(
       duration: kThemeAnimationDuration,
       vsync: vsync
     );

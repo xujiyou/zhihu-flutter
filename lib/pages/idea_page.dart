@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../global_config.dart';
+import 'package:zhihu/model/global_config.dart';
 
 class IdeaPage extends StatefulWidget {
 
   @override
-  _IdeaPageState createState() => new _IdeaPageState();
+  _IdeaPageState createState() => _IdeaPageState();
 
 }
 
@@ -12,17 +12,17 @@ class _IdeaPageState extends State<IdeaPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-        home: new Scaffold(
-          appBar: new AppBar(
-            title: new Text('想法'),
+    return MaterialApp(
+        home: Scaffold(
+          appBar: AppBar(
+            title: Text('想法'),
             actions: <Widget>[
-              new Container(
+              Container(
 
               )
             ],
           ),
-          body: new Center(
+          body: Center(
               child: null
           ),
         ),
