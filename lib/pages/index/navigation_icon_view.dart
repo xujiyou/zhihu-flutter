@@ -7,11 +7,11 @@ class NavigationIconView {
     Widget title,
     TickerProvider vsync
   }):
-    item = new BottomNavigationBarItem(
+    item = BottomNavigationBarItem(
       icon: icon,
       title: title,
     ),
-    controller = new AnimationController(
+        controller = AnimationController(
       duration: kThemeAnimationDuration,
       vsync: vsync
     );

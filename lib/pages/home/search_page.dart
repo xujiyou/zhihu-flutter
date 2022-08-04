@@ -3,37 +3,37 @@ import '../global_config.dart';
 
 class SearchPage extends StatefulWidget{
   @override
-  SearchPageState createState() => new SearchPageState();
+  SearchPageState createState() => SearchPageState();
 }
 
 class SearchPageState extends State<SearchPage> {
 
   Widget searchInput() {
-    return new Container(
-      child: new Row(
+    return Container(
+      child: Row(
         children: <Widget>[
-          new Container(
-            child: new FlatButton.icon(
+          Container(
+            child: FlatButton.icon(
               onPressed: (){
                 Navigator.of(context).pop();
               },
-              icon: new Icon(Icons.arrow_back, color: GlobalConfig.fontColor),
-              label: new Text(""),
+              icon: Icon(Icons.arrow_back, color: GlobalConfig.fontColor),
+              label: Text(""),
             ),
             width: 60.0,
           ),
-          new Expanded(
-            child: new TextField(
+          Expanded(
+            child: TextField(
               autofocus: true,
-              decoration: new InputDecoration.collapsed(
+              decoration: InputDecoration.collapsed(
                   hintText: "搜索比乎内容",
-                  hintStyle: new TextStyle(color: GlobalConfig.fontColor)
+                  hintStyle: TextStyle(color: GlobalConfig.fontColor)
               ),
             ),
           )
         ],
       ),
-      decoration: new BoxDecoration(
+      decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(const Radius.circular(4.0)),
         color: GlobalConfig.searchBackgroundColor
       ),
@@ -42,33 +42,44 @@ class SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
         theme: GlobalConfig.themeData,
-        home: new Scaffold(
-          appBar: new AppBar(
+        home: Scaffold(
+            appBar: AppBar(
             title: searchInput(),
           ),
-          body: new SingleChildScrollView(
-            child: new Column(
+            body: SingleChildScrollView(
+              child: Column(
               children: <Widget>[
-                new Container(
-                  child: new Text("比乎热搜", style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0)),
+                  Container(
+                    child: Text("比乎热搜",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16.0)),
                   margin: const EdgeInsets.only(top: 16.0, left: 16.0, bottom: 16.0),
                   alignment: Alignment.topLeft,
                 ),
-                new Row(
+                  Row(
                   children: <Widget>[
-                    new Container(
-                      child: new Chip(
-                        label: new FlatButton(onPressed: (){}, child: new Text("汽车关税下调",style: new TextStyle(color: GlobalConfig.fontColor),)),
+                      Container(
+                        child: Chip(
+                          label: FlatButton(
+                              onPressed: () {},
+                              child: Text(
+                                "汽车关税下调",
+                                style: TextStyle(color: GlobalConfig.fontColor),
+                              )),
                         backgroundColor: GlobalConfig.dark == true ? Colors.white10 : Colors.black12,
                       ),
                       margin: const EdgeInsets.only(left: 16.0, bottom: 16.0),
                       alignment: Alignment.topLeft,
                     ),
-                    new Container(
-                      child: new Chip(
-                        label: new FlatButton(onPressed: (){}, child: new Text("李彦宏传闻辟谣",style: new TextStyle(color: GlobalConfig.fontColor))),
+                      Container(
+                        child: Chip(
+                          label: FlatButton(
+                              onPressed: () {},
+                              child: Text("李彦宏传闻辟谣",
+                                  style: TextStyle(
+                                      color: GlobalConfig.fontColor))),
                         backgroundColor: GlobalConfig.dark == true ? Colors.white10 : Colors.black12,
                       ),
                       margin: const EdgeInsets.only(left: 16.0, bottom: 16.0),
@@ -76,19 +87,27 @@ class SearchPageState extends State<SearchPage> {
                     ),
                   ],
                 ),
-                new Row(
+                  Row(
                   children: <Widget>[
-                    new Container(
-                      child: new Chip(
-                        label: new FlatButton(onPressed: (){}, child: new Text("小米8",style: new TextStyle(color: GlobalConfig.fontColor))),
+                      Container(
+                        child: Chip(
+                          label: FlatButton(
+                              onPressed: () {},
+                              child: Text("小米8",
+                                  style: TextStyle(
+                                      color: GlobalConfig.fontColor))),
                         backgroundColor: GlobalConfig.dark == true ? Colors.white10 : Colors.black12,
                       ),
                       margin: const EdgeInsets.only(left: 16.0, bottom: 16.0),
                       alignment: Alignment.topLeft,
                     ),
-                    new Container(
-                      child: new Chip(
-                        label: new FlatButton(onPressed: (){}, child: new Text("超时空同居",style: new TextStyle(color: GlobalConfig.fontColor))),
+                      Container(
+                        child: Chip(
+                          label: FlatButton(
+                              onPressed: () {},
+                              child: Text("超时空同居",
+                                  style: TextStyle(
+                                      color: GlobalConfig.fontColor))),
                         backgroundColor: GlobalConfig.dark == true ? Colors.white10 : Colors.black12,
                       ),
                       margin: const EdgeInsets.only(left: 16.0, bottom: 16.0),
@@ -96,78 +115,113 @@ class SearchPageState extends State<SearchPage> {
                     ),
                   ],
                 ),
-                new Container(
-                  child: new Text("搜索历史", style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0)),
+                  Container(
+                    child: Text("搜索历史",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16.0)),
                   margin: const EdgeInsets.only(left: 16.0, bottom: 16.0),
                   alignment: Alignment.topLeft,
                 ),
-                new Container(
-                  child: new Row(
+                  Container(
+                    child: Row(
                     children: <Widget>[
-                      new Container(
-                        child: new Icon(Icons.access_time, color: GlobalConfig.fontColor, size: 16.0),
+                        Container(
+                          child: Icon(Icons.access_time,
+                              color: GlobalConfig.fontColor, size: 16.0),
                         margin: const EdgeInsets.only(right: 12.0),
                       ),
-                      new Expanded(
-                        child: new Container(
-                          child: new Text("业余兴趣", style: new TextStyle( color: GlobalConfig.fontColor, fontSize: 14.0),),
+                        Expanded(
+                          child: Container(
+                            child: Text(
+                              "业余兴趣",
+                              style: TextStyle(
+                                  color: GlobalConfig.fontColor,
+                                  fontSize: 14.0),
+                            ),
                         ),
                       ),
-                      new Container(
-                        child: new Icon(Icons.clear, color: GlobalConfig.fontColor, size: 16.0),
+                        Container(
+                          child: Icon(Icons.clear,
+                              color: GlobalConfig.fontColor, size: 16.0),
                       )
                     ],
                   ),
                   margin: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 10.0),
                   padding: const EdgeInsets.only(bottom: 10.0),
-                  decoration: new BoxDecoration(
-                    border: new BorderDirectional(bottom: new BorderSide(color: GlobalConfig.dark == true ?  Colors.white12 : Colors.black12))
+                    decoration: BoxDecoration(
+                        border: BorderDirectional(
+                            bottom: BorderSide(
+                                color: GlobalConfig.dark == true
+                                    ? Colors.white12
+                                    : Colors.black12))
                   ),
                 ),
-                new Container(
-                  child: new Row(
+                  Container(
+                    child: Row(
                     children: <Widget>[
-                      new Container(
-                        child: new Icon(Icons.access_time, color: GlobalConfig.fontColor, size: 16.0),
+                        Container(
+                          child: Icon(Icons.access_time,
+                              color: GlobalConfig.fontColor, size: 16.0),
                         margin: const EdgeInsets.only(right: 12.0),
                       ),
-                      new Expanded(
-                        child: new Container(
-                          child: new Text("三体", style: new TextStyle( color: GlobalConfig.fontColor, fontSize: 14.0),),
+                        Expanded(
+                          child: Container(
+                            child: Text(
+                              "三体",
+                              style: TextStyle(
+                                  color: GlobalConfig.fontColor,
+                                  fontSize: 14.0),
+                            ),
                         ),
                       ),
-                      new Container(
-                        child: new Icon(Icons.clear, color: GlobalConfig.fontColor, size: 16.0),
+                        Container(
+                          child: Icon(Icons.clear,
+                              color: GlobalConfig.fontColor, size: 16.0),
                       )
                     ],
                   ),
                   margin: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 10.0),
                   padding: const EdgeInsets.only(bottom: 10.0),
-                  decoration: new BoxDecoration(
-                      border: new BorderDirectional(bottom: new BorderSide(color: GlobalConfig.dark == true ?  Colors.white12 : Colors.black12))
+                    decoration: BoxDecoration(
+                        border: BorderDirectional(
+                            bottom: BorderSide(
+                                color: GlobalConfig.dark == true
+                                    ? Colors.white12
+                                    : Colors.black12))
                   ),
                 ),
-                new Container(
-                  child: new Row(
+                  Container(
+                    child: Row(
                     children: <Widget>[
-                      new Container(
-                        child: new Icon(Icons.access_time, color: GlobalConfig.fontColor, size: 16.0),
+                        Container(
+                          child: Icon(Icons.access_time,
+                              color: GlobalConfig.fontColor, size: 16.0),
                         margin: const EdgeInsets.only(right: 12.0),
                       ),
-                      new Expanded(
-                        child: new Container(
-                          child: new Text("人类未来", style: new TextStyle( color: GlobalConfig.fontColor, fontSize: 14.0),),
+                        Expanded(
+                          child: Container(
+                            child: Text(
+                              "人类未来",
+                              style: TextStyle(
+                                  color: GlobalConfig.fontColor,
+                                  fontSize: 14.0),
+                            ),
                         ),
                       ),
-                      new Container(
-                        child: new Icon(Icons.clear, color: GlobalConfig.fontColor, size: 16.0),
+                        Container(
+                          child: Icon(Icons.clear,
+                              color: GlobalConfig.fontColor, size: 16.0),
                       )
                     ],
                   ),
                   margin: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 10.0),
                   padding: const EdgeInsets.only(bottom: 10.0),
-                  decoration: new BoxDecoration(
-                      border: new BorderDirectional(bottom: new BorderSide(color: GlobalConfig.dark == true ?  Colors.white12 : Colors.black12))
+                    decoration: BoxDecoration(
+                        border: BorderDirectional(
+                            bottom: BorderSide(
+                                color: GlobalConfig.dark == true
+                                    ? Colors.white12
+                                    : Colors.black12))
                   ),
                 ),
               ],

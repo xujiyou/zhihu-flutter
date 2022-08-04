@@ -10,7 +10,7 @@ import '../my/my_page.dart';
 class Index extends StatefulWidget {
 
   @override
-  State<Index> createState() => new _IndexState();
+  State<Index> createState() => _IndexState();
 }
 
 class _IndexState extends State<Index> with TickerProviderStateMixin{
@@ -24,29 +24,29 @@ class _IndexState extends State<Index> with TickerProviderStateMixin{
   void initState() {
     super.initState();
     _navigationViews = <NavigationIconView>[
-      new NavigationIconView(
-        icon: new Icon(Icons.assignment),
-        title: new Text("首页"),
+      NavigationIconView(
+        icon: Icon(Icons.assignment),
+        title: Text("首页"),
         vsync: this,
       ),
-      new NavigationIconView(
-        icon: new Icon(Icons.all_inclusive),
-        title: new Text("想法"),
+      NavigationIconView(
+        icon: Icon(Icons.all_inclusive),
+        title: Text("想法"),
         vsync: this,
       ),
-      new NavigationIconView(
-        icon: new Icon(Icons.add_shopping_cart),
-        title: new Text("市场"),
+      NavigationIconView(
+        icon: Icon(Icons.add_shopping_cart),
+        title: Text("市场"),
         vsync: this,
       ),
-      new NavigationIconView(
-        icon: new Icon(Icons.add_alert),
-        title: new Text("通知"),
+      NavigationIconView(
+        icon: Icon(Icons.add_alert),
+        title: Text("通知"),
         vsync: this,
       ),
-      new NavigationIconView(
-        icon: new Icon(Icons.perm_identity),
-        title: new Text("我的"),
+      NavigationIconView(
+        icon: Icon(Icons.perm_identity),
+        title: Text("我的"),
         vsync: this,
       ),
     ];
@@ -55,11 +55,11 @@ class _IndexState extends State<Index> with TickerProviderStateMixin{
     }
 
     _pageList = <StatefulWidget>[
-      new HomePage(),
-      new IdeaPage(),
-      new MarketPage(),
-      new NoticePage(),
-      new MyPage()
+      HomePage(),
+      IdeaPage(),
+      MarketPage(),
+      NoticePage(),
+      MyPage()
     ];
     _currentPage = _pageList[_currentIndex];
   }
@@ -78,7 +78,7 @@ class _IndexState extends State<Index> with TickerProviderStateMixin{
 
   @override
   Widget build(BuildContext context) {
-    final BottomNavigationBar bottomNavigationBar = new BottomNavigationBar(
+    final BottomNavigationBar bottomNavigationBar = BottomNavigationBar(
         items: _navigationViews
             .map((NavigationIconView navigationIconView) => navigationIconView.item)
             .toList(),
@@ -95,9 +95,9 @@ class _IndexState extends State<Index> with TickerProviderStateMixin{
       }
     );
 
-    return new MaterialApp(
-      home: new Scaffold(
-        body: new Center(
+    return MaterialApp(
+        home: Scaffold(
+          body: Center(
             child: _currentPage
         ),
         bottomNavigationBar: bottomNavigationBar,

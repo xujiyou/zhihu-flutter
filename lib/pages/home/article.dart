@@ -14,7 +14,7 @@ class Article {
 }
 
 List<Article> articleList = [
-  new Article(
+  Article(
       "https://pic3.zhimg.com/50/2b8be8010409012e7cdd764e1befc4d1_s.jpg",
       "learner",
       "赞同了回答",
@@ -24,7 +24,7 @@ List<Article> articleList = [
       32, 10,
       imgUrl: "https://pic2.zhimg.com/50/v2-710b7a6fea12a7203945b666790b7181_hd.jpg"
   ),
-  new Article(
+  Article(
     "https://pic4.zhimg.com/50/v2-9a3cb5d5ee4339b8cf4470ece18d404f_s.jpg",
     "learner",
     "回答了问题",
@@ -33,7 +33,7 @@ List<Article> articleList = [
     "检查一下你手机里是不是被人装了什么软件，把你不认识的非系统软件删掉。不会删就去找手机店里的小哥，为什么这么多人...",
     38, 13,
   ),
-  new Article(
+  Article(
       "https://pic3.zhimg.com/50/v2-8943c20cecab028e19644cccf0f3a38b_s.jpg",
       "learner",
       "回答了问题",
@@ -43,7 +43,7 @@ List<Article> articleList = [
       38, 13,
       imgUrl: "https://pic4.zhimg.com/v2-a7493d69f0d8f849c6345f8f693454f3_200x112.jpg"
   ),
-  new Article(
+  Article(
       "https://pic3.zhimg.com/50/v2-8943c20cecab028e19644cccf0f3a38b_s.jpg",
       "learner",
       "回答了问题",

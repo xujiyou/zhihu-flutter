@@ -6,7 +6,7 @@ import '../global_config.dart';
 class Recommend extends StatefulWidget {
 
   @override
-  RecommendState createState() => new RecommendState();
+  RecommendState createState() => RecommendState();
 
 }
 
@@ -15,31 +15,32 @@ class RecommendState extends State<Recommend> {
   Widget commonCard(Article article) {
     Widget markWidget;
     if (article.imgUrl == null) {
-      markWidget = new Text(
+      markWidget = Text(
         article.user + " :  " + article.mark,
-        style: new TextStyle(height: 1.3, color: GlobalConfig.fontColor)
+          style: TextStyle(height: 1.3, color: GlobalConfig.fontColor)
       );
     } else {
-      markWidget = new Row(
+      markWidget = Row(
         children: <Widget>[
-          new Expanded(
+          Expanded(
             flex: 2,
-            child: new Container(
-              child: new Text(
+            child: Container(
+              child: Text(
                 article.user + " :  " + article.mark,
-                style: new TextStyle(height: 1.3, color: GlobalConfig.fontColor)
+                  style: TextStyle(height: 1.3, color: GlobalConfig.fontColor)
               ),
             ),
           ),
-          new Expanded(
+          Expanded(
               flex: 1,
-              child: new AspectRatio(
+              child: AspectRatio(
                   aspectRatio: 3.0 / 2.0,
-                  child:new Container(
-                    foregroundDecoration:new BoxDecoration(
-                        image: new DecorationImage(
-                          image: new NetworkImage(article.imgUrl),
-                          centerSlice: new Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),
+                  child: Container(
+                    foregroundDecoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(article.imgUrl),
+                          centerSlice:
+                              Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),
                         ),
                         borderRadius: const BorderRadius.all(const Radius.circular(6.0))
                     ),
@@ -49,39 +50,50 @@ class RecommendState extends State<Recommend> {
         ],
       );
     }
-    return new Container(
+    return Container(
         color: GlobalConfig.cardBackgroundColor,
         margin: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-        child: new FlatButton(
+        child: FlatButton(
           onPressed: (){
-            Navigator.of(context).push(new MaterialPageRoute(
+            Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) {
-                  return new ReplyPage();
+              return ReplyPage();
                 }
             ));
           },
-          child: new Column(
+          child: Column(
             children: <Widget>[
-              new Container(
-                  child: new Text(
+              Container(
+                  child: Text(
                       article.title,
-                      style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, height: 1.3, color: GlobalConfig.dark == true? Colors.white70 : Colors.black)
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0,
+                          height: 1.3,
+                          color: GlobalConfig.dark == true
+                              ? Colors.white70
+                              : Colors.black)
                   ),
-                  margin: new EdgeInsets.only(top: 6.0, bottom: 2.0),
+                  margin: EdgeInsets.only(top: 6.0, bottom: 2.0),
                   alignment: Alignment.topLeft
               ),
-              new Container(
+              Container(
                   child: markWidget,
-                  margin: new EdgeInsets.only(top: 6.0, bottom: 14.0),
+                  margin: EdgeInsets.only(top: 6.0, bottom: 14.0),
                   alignment: Alignment.topLeft
               ),
-              new Container(
-                child: new Row(
+              Container(
+                child: Row(
                   children: <Widget>[
-                    new Expanded(
-                        child: new Text(article.agreeNum.toString() + " 赞同 · " + article.commentNum.toString() + "评论", style: new TextStyle(color: GlobalConfig.fontColor))
+                    Expanded(
+                        child: Text(
+                            article.agreeNum.toString() +
+                                " 赞同 · " +
+                                article.commentNum.toString() +
+                                "评论",
+                            style: TextStyle(color: GlobalConfig.fontColor))
                     ),
-                    new Icon(Icons.linear_scale, color: GlobalConfig.fontColor)
+                    Icon(Icons.linear_scale, color: GlobalConfig.fontColor)
                   ],
                 ),
                 padding: const EdgeInsets.only(bottom: 10.0),
@@ -94,10 +106,10 @@ class RecommendState extends State<Recommend> {
 
   @override
   Widget build(BuildContext context) {
-    return new SingleChildScrollView(
-        child: new Container(
+    return SingleChildScrollView(
+        child: Container(
         margin: const EdgeInsets.only(top: 5.0),
-        child: new Column(
+      child: Column(
           children: <Widget>[
             commonCard(articleList[0]),
             commonCard(articleList[1]),

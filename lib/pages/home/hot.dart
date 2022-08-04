@@ -6,39 +6,43 @@ import '../global_config.dart';
 class Hot extends StatefulWidget{
 
   @override
-  HotState createState() => new HotState();
+  HotState createState() => HotState();
 }
 
 class HotState extends State<Hot>{
 
   Widget hotCard(Question question) {
-    return new Container(
-      decoration: new BoxDecoration(
+    return Container(
+      decoration: BoxDecoration(
           color: GlobalConfig.cardBackgroundColor,
-          border: new BorderDirectional(
-              bottom: new BorderSide(color: GlobalConfig.dark == true ?  Colors.white12 : Colors.black12, width: 1.0)
+          border: BorderDirectional(
+              bottom: BorderSide(
+                  color: GlobalConfig.dark == true
+                      ? Colors.white12
+                      : Colors.black12,
+                  width: 1.0)
           )
       ),
-      child: new FlatButton(
+      child: FlatButton(
           onPressed: (){
-            Navigator.of(context).push(new MaterialPageRoute(
+            Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) {
-                  return new QuestionPage();
+              return QuestionPage();
                 }
             ));
           },
-          child: new Container(
+          child: Container(
             padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-            child: new Row(
+            child: Row(
               children: <Widget>[
-                new Expanded(
+                Expanded(
                     flex: 1,
-                    child: new Column(
+                    child: Column(
                       children: <Widget>[
-                        new Container(
-                          child: new Text(
+                        Container(
+                          child: Text(
                             question.order,
-                            style: new TextStyle(
+                              style: TextStyle(
                                 color: question.order.compareTo("03") <= 0 ? Colors.red : Colors.yellow,
                                 fontSize: 18.0
                             )
@@ -46,49 +50,69 @@ class HotState extends State<Hot>{
                           alignment: Alignment.topLeft,
                         ),
                         question.rise != null ?
-                        new Row(
+                        Row(
                           children: <Widget>[
-                            new Icon(Icons.arrow_upward, color: Colors.red, size: 10.0,),
-                            new Text(question.rise, style: new TextStyle(color: Colors.red, fontSize: 10.0),)
+                                  Icon(
+                                    Icons.arrow_upward,
+                                    color: Colors.red,
+                                    size: 10.0,
+                                  ),
+                                  Text(
+                                    question.rise,
+                                    style: TextStyle(
+                                        color: Colors.red, fontSize: 10.0),
+                                  )
                           ],
-                        ) : new Container()
+                              )
+                            : Container()
                       ],
                     )
                 ),
-                new Expanded(
+                Expanded(
                     flex: 6,
-                    child: new Column(
+                    child: Column(
                       children: <Widget>[
-                        new Container(
-                          child: new Text(
+                        Container(
+                          child: Text(
                             question.title,
-                            style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0, height: 1.1, color: GlobalConfig.dark == true ? Colors.white70 : Colors.black),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16.0,
+                                height: 1.1,
+                                color: GlobalConfig.dark == true
+                                    ? Colors.white70
+                                    : Colors.black),
                           ),
                           padding: const EdgeInsets.only(bottom: 10.0,right: 4.0),
                           alignment: Alignment.topLeft,
                         ),
                         question.mark != null ?
-                          new Container(
-                            child: new Text(question.mark, style: new TextStyle(color: GlobalConfig.fontColor)),
+                          Container(
+                                child: Text(question.mark,
+                                    style: TextStyle(
+                                        color: GlobalConfig.fontColor)),
                             alignment: Alignment.topLeft,
                               padding: const EdgeInsets.only(bottom: 8.0,right: 4.0)
-                          ) : new Container(),
-                        new Container(
-                          child: new Text(question.hotNum, style: new TextStyle(color: GlobalConfig.fontColor)),
+                          )
+                            : Container(),
+                        Container(
+                          child: Text(question.hotNum,
+                              style: TextStyle(color: GlobalConfig.fontColor)),
                           alignment: Alignment.topLeft,
                         )
                       ],
                     )
                 ),
-                new Expanded(
+                Expanded(
                     flex: 3,
-                    child: new AspectRatio(
+                    child: AspectRatio(
                         aspectRatio: 3.0 / 2.0,
-                        child: new Container(
-                          foregroundDecoration:new BoxDecoration(
-                              image: new DecorationImage(
-                                image: new NetworkImage(question.imgUrl),
-                                centerSlice: new Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),
+                        child: Container(
+                          foregroundDecoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: NetworkImage(question.imgUrl),
+                                centerSlice:
+                                    Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),
                               ),
                               borderRadius: const BorderRadius.all(const Radius.circular(6.0))
                           ),
@@ -104,12 +128,12 @@ class HotState extends State<Hot>{
 
   @override
   Widget build(BuildContext context) {
-    return new SingleChildScrollView(
-        child: new Container(
+    return SingleChildScrollView(
+        child: Container(
         margin: const EdgeInsets.only(top: 5.0),
-        child: new Column(
+      child: Column(
           children: <Widget>[
-            new Container(
+          Container(
               margin: const EdgeInsets.only(top: 5.0),
             ),
             hotCard(questionList[0]),
